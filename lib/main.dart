@@ -59,10 +59,10 @@ class MyApp extends StatelessWidget {
               tertiary: Colors.blueAccent[100],
             ),
           ),
-          home: value.isAuth() ? HomeScreen() : SignUpScreen(),
+          home: value.isAuth() ? const HomeScreen() : const SignUpScreen(),
           routes: {
             HomeScreen.routeName: (context) => const HomeScreen(),
-            EditProductScreen.routeName: (context) => EditProductScreen(),
+            EditProductScreen.routeName: (context) => const EditProductScreen(),
             FavouriteScreen.routeName: (context) => const FavouriteScreen(),
             OrderScreen.routeName: (context) => const OrderScreen(),
             YourProductsScreen.routeName: (context) =>

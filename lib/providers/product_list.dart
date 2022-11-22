@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:http/http.dart' as http;
 
 import './product.dart';
@@ -94,13 +93,13 @@ class ProductList with ChangeNotifier {
   Future<void> fetchProductList() async {
     try {
       final List<Product> allProducts = await fetchAllProducts();
-      final List<Product> _fetchedList = await fetchYourProducts();
+      final List<Product> fetchedList = await fetchYourProducts();
 
-      productList = _fetchedList;
+      productList = fetchedList;
       productList.addAll(allProducts);
       await _markFavourites();
     } catch (error) {
-      throw error;
+      rethrow;
     }
     notifyListeners();
   }
